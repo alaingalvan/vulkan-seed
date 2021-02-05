@@ -36,11 +36,21 @@ cd build
 # 🖼️ To build your Visual Studio solution on Windows x64
 cmake .. -A x64
 
-# 🍎 To build your XCode project on Mac OS
+# 🍎 To build your XCode project On Mac OS for Mac OS
 cmake .. -G Xcode
+
+# 📱 To build your XCode project on Mac OS for iOS / iPad OS / tvOS / watchOS
+cmake .. -G Xcode -DCMAKE_SYSTEM_NAME=iOS
 
 # 🐧 To build your .make file on Linux
 cmake ..
+
+# 🤖 To build your Android Studio project for Android
+cmake .. \
+-DCMAKE_TOOLCHAIN_FILE=$NDK/build/cmake/android.toolchain.cmake \
+-DANDROID_ABI=$ABI \
+-DANDROID_NATIVE_API_LEVEL=$MINSDKVERSION \
+-DXWIN_OS=ANDROID
 
 # 🔨 Build on any platform:
 cmake --build .
@@ -66,7 +76,7 @@ As your project becomes more complex, you'll want to separate files and organize
 ├─ 📄 CMakeLists.txt               # 🔨 Build Script
 ├─ 📄 license.md                   # ⚖️ Your License (Unlicense)
 └─ 📃readme.md                     # 📖 Read Me!
--->
+```
 
 [cmake-img]: https://img.shields.io/badge/cmake-3.6-1f9948.svg?style=flat-square
 [cmake-url]: https://cmake.org/
